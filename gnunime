@@ -1,0 +1,75 @@
+#!/bin/python
+
+import os 
+import sys
+
+
+actions = '''
+Actions:
+    download
+    search
+    Season
+'''
+
+text = '''
+Pass an Action! 
+%s
+
+SYNOPSIS:
+    gnunime [action] [Argument]
+
+EXP: gnunime download naruto
+     gnunime season upcoming
+     gnunime season 2016-winter
+
+''' % actions
+
+invalid_action = '''
+There is no such an action to do! 
+%s
+''' % actions
+
+try:
+    act = sys.argv[1]
+except IndexError:
+    print(text)
+    exit()
+
+# Checks number of arguments given, it shouldn't be more than 3.\
+arg_number = len(sys.argv)
+if arg_number > 3:
+    if act != 'season':
+        print('Anime name has to be inside quotations')
+        exit()
+    else:
+        print('The format has to be like: year-season --> 2016-winter')
+        
+
+
+list_of_actions = ['search', 'download', 'season']
+if act not in list_of_actions:
+    print(invalid_action)
+    exit()
+
+
+
+try:
+    argument = sys.argv[2]
+except IndexError:
+    if act != 'season':
+        print('No anime is given!')
+        exit()
+    else:
+        print('Enter a year and a seaso to check!\n format has to be: year-season --> 2016-winter')
+        exit()
+
+
+
+if act == 'download':
+    os.system('python3 download.py %s' % argument)
+elif act == 'search':
+    os.system('python3 search.py %s' % argument)
+elif act == 'season':
+    os.system('python3 season.py %s' % argument)
+
+
