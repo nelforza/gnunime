@@ -6,7 +6,6 @@
   ![screenshot 1](http://s6.picofile.com/file/8376941626/2.png "")
   2. Search animes.
   
-  ![screenshot 2]( "")
   3. Season
 
 ### Dependencies :
