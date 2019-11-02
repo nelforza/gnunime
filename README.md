@@ -1,3 +1,5 @@
+# gnunime
+a command line app which provides anime links and informations
 
 ### Features :
   ![gif 1](http://s7.picofile.com/file/8377011118/3.gif "")
